@@ -2,7 +2,7 @@
 
 SinCityNotary Team Tracker v1.3 manages employees, equipment, accessories, access checklists, Report/Request tickets and activity history.
 
-This repository is a documentation showcase. Application source, a runnable website, production credentials, employee records, images and backups are not included. The live installation is restricted to the owner's ChatGPT account; having its address or its shared team code alone does not grant another account access.
+This repository is a documentation showcase. Application source, a runnable website, production credentials, employee records, images and backups are not included. Employees can open the live site without a ChatGPT account and sign in using the existing shared team code. Records, images and backups require a valid tracker session.
 
 ## Read the documentation
 
@@ -31,9 +31,9 @@ This repository is a documentation showcase. Application source, a runnable webs
 
 ## Access and publication notes
 
-The application keeps its own shared-code authentication behind the host's owner-only account gate. Older documents describe the application-level shared code and historical deployment state; they do not grant permission to use the current hosted installation. Earlier test counts and security observations are dated evidence, not a fresh security certification.
+The live site uses the application's existing shared-code authentication. The ChatGPT sign-in gate was removed on 18 October 2026 so employees can use the tracker without the owner's ChatGPT credentials. Anyone with the shared code can access the workspace; keep the code confidential and share it only with authorized employees. Earlier test counts and security observations are dated evidence, not a fresh security certification.
 
-Private production URLs, hosting project IDs, snapshot details and backup fingerprints have been removed from this public edition. References to implementation files, scripts, data catalogs and QA artifacts identify files in the private application package. Those files are intentionally absent here. Safe documentation is readable; access to the application requires a separate grant from its owner.
+Private production URLs, hosting project IDs, snapshot details and backup fingerprints have been removed from this public edition. References to implementation files, scripts, data catalogs and QA artifacts identify files in the private application package. Those files are intentionally absent here. Safe documentation is readable; application access requires the private shared team code supplied by the owner.
 
 ## Rights
 
