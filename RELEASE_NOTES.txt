@@ -1,0 +1,59 @@
+# SinCityNotary Team Tracker v1.3 - release history
+Latest source update: 18 October 2026 - compact capacity-and-type storage labels, such as 128GB SSD and 1TB HDD, across selectors, device/history display and readable CSV summaries. All three roles expose all 360 choices; 128GB is available for every drive type and role. Capacities sort numerically from 1GB through 24TB, with GB before TB; storage search accepts compact or spaced capacity text. Add/remove actions retain fixed Primary, Secondary and Tertiary roles. Existing raw spaced values, history, CSV field columns and backups remain intact. No schema, shared-access, employee/device identity or uploaded-original migration.
+Verification: isolated checks and the production build are required before publication; see qa/storage-compact-release.json for this correction. Physical browser/mobile/tablet testing is unavailable. Publication is verified separately through the hosting deployment result.
+
+## Historical production release candidate
+Date prepared: 17 October 2026
+Status: Final source verification and publication in progress; this file does not certify a completed live upgrade.
+
+## Scope carried forward from user-approved beta v1.2.2
+- Requests > Edit request: separate timestamped progress updates.
+- Each progress entry can be corrected with prior revisions preserved in history.
+- Manual employee email draft uses the saved employee email; nothing is sent automatically.
+- Employee email confirmations are self-reported internal activity, not delivery receipts.
+- Needs attention counts flagged unarchived equipment (Needs repair, Faulty, Lost, historical Needs attention)
+  plus active unresolved High/Urgent priority requests, with breakdown shown.
+- UI metadata, footer, install manifest, PWA cache and guide updated to version 1.3.
+- Existing global search, IDs, archived records, notes, permissions, dark mode and navigation retained.
+- Unsaved journal entries, corrections and modified email drafts join the existing discard guard; in-flight journal writes block closing, and old-session responses are discarded. Drafts are not persisted after session expiry.
+- Full JSON export reads one consistent snapshot, including progress/revisions/manual email logs. Import validates and commits the whole dataset atomically; extension failures roll back core rows. The existing version=1 format and v1.1 backups remain compatible.
+
+## Important technical notes
+- The original `.openai/hosting.json` project ID and D1 binding are retained byte-for-byte.
+- Existing prod ACCESS_CODE_HASH and SESSION_SECRET must be retained at deploy time, not generated anew.
+- The code contains NO real employee data, NO code hashes and NO production backup.
+- The registered 0002 Drizzle migration adds three tables and four indexes. It uses one DDL statement per line for hosted compatibility and installs no triggers. Journal revision and email-confirmation immutability is enforced by the authenticated API; privileged database administrators can modify storage.
+- The internal `/api/beta/` route and `beta_*` tables are retained strictly for compatibility with the tested release.
+  They are first-party production features after upgrade; they do NOT use Render or Neon.
+- Do not publish from the beta repository's `main` branch to production.
+- A fresh full JSON backup from the live production API was saved before publication: the private production dataset. The corrected migration was applied twice to its local copy without changing original rows; foreign-key checks passed. Take a final fresh backup if records change before deployment. A native D1 snapshot interface is unavailable through the connected tools; the fresh durable JSON backup, preserved v1.1 git commit and additive migration are the available safeguards.
+- The server uses manual SMTP-free mailto drafts and copy-to-clipboard. The website does not send email.
+
+## Deployment and verification
+The original Sites production project `[private-project-id]` is available for this upgrade. Node.js 24 and source dependencies are available for release checks. Publication and authenticated hosted API verification must be recorded before calling the upgrade complete.
+The private production database export is excluded from this source package. An off-host copy was validated separately.
+Browser rendering and physical mobile-device testing are unverified; the browser-control skill is unavailable in this session. Local HTTP API tests can be run without browser automation.
+
+
+## Make / brand model-catalog correction - 17 October 2026
+- All 13 named brand choices audited; distinct labels254→4588, named mappings254→5096, 4842 appended mappings.
+- Added Lenovo IdeaPad and broad manufacturer-supported current/historical model coverage.
+- Exposed exact model-number capture for listed models/families, added downloadable model reference, and cached valid catalog combinations for responsive large lists.
+- Preserved all original catalog options and operational data; no database migration required.
+- Source-backed coverage and limitations documented in docs/MODEL_CATALOG_AUDIT.md.
+
+
+## Manual WhatsApp update - 18 October 2026
+- Requests > Edit request > Updates & messages offers WhatsApp employee on a saved progress update, alongside the existing email action.
+- The recipient is fixed to the linked employee's saved country-validated international Contact number. Missing/invalid values require correcting that employee profile.
+- Prepared editable text includes request/ticket, current status, device context when present and the selected update. Open WhatsApp hands off a draft; the operator must press Send in WhatsApp.
+- Mark WhatsApp as sent creates a separate, immutable, self-reported confirmation tied to that request, employee and update revision. It is not proof of send, delivery or reading.
+- No automatic SMS/WhatsApp sender, external API, provider credentials or outbound test messages are included.
+- Snapshot/restore includes the new confirmations atomically; backups without WhatsApp rows remain compatible. Preserve the existing D1 database, shared code and secrets.
+- Device images, Warranty Status, permanent IDs, original email behavior and historical data stay in place. Current dated release evidence records actual checks and publication status.
+
+
+## Report/Request label update - 18 October 2026
+- Current navigation, add/edit controls, ID/search labels and CSV headings use Report/Request. New email/WhatsApp drafts use the updated workflow wording.
+- Current manual, active requirements and developer handoff match the new display labels. Historical release notes above retain their original wording.
+- Internal API/storage identifiers, permanent IDs, device/employee links, accepted history and saved message confirmations are preserved. No SQL migration or data rewrite is required. Edition remains v1.3.
